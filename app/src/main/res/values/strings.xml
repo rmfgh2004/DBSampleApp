@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DbSampleApp</string>
+    <string name="com.example.dbsampleapp.pref_name" />
 </resources>
