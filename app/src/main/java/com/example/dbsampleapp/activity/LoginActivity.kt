@@ -1,7 +1,6 @@
-package com.example.dbsampleapp
+package com.example.dbsampleapp.activity
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,11 +8,20 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.dbsampleapp.databinding.ActivityLoginBinding
 import androidx.core.content.edit
+import com.example.dbsampleapp.AppDatabase
+import com.example.dbsampleapp.R
+import com.example.dbsampleapp.dao.UserDao
+import com.example.dbsampleapp.entity.User
 
 class LoginActivity : AppCompatActivity() {
 
     private val binding by lazy {
         ActivityLoginBinding.inflate(layoutInflater)
+    }
+
+    private val userDao: UserDao by lazy {
+        val db = AppDatabase.getInstance(this)
+        db.userDao()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,6 +67,17 @@ class LoginActivity : AppCompatActivity() {
             return false
         }
 
+        val user = userDao.findById(id)
+        if (user != null) {
+            if (user.password != pw) {
+                binding.passwordTextInputLayout.error = "PW is different"
+                return false
+            } else {
+                return true
+            }
+        }
+
+        userDao.insert(User(0, id, pw))
         return true
     }
 
