@@ -36,6 +36,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -52,4 +53,7 @@ dependencies {
 
     implementation(libs.androidx.room)
     kapt(libs.androidx.room.compiler)
+
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.android)
 }

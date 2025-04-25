@@ -11,6 +11,7 @@ activity = "1.8.0"
 constraintlayout = "2.1.4"
 room = "2.7.1"
 kapt = "2.0.21"
+coroutine = "1.7.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -23,6 +24,8 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-room = {group = "androidx.room", name = "room-runtime", version.ref = "room"}
 androidx-room-compiler = {group = "androidx.room", name = "room-compiler", version.ref = "room"}
+coroutines-core = {group = "org.jetbrains.kotlin", name = "kotlinx-coroutines-core", version.ref = "coroutine"}
+coroutines-android = {group = "org.jetbrains.kotlin", name = "kotlinx-coroutines-android", version.ref = "coroutine"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
